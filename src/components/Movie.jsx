@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
 const Movie = ({ movie }) => {
   return (
-    <motion.div>
+    <motion.div
+      layout
+      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, scale: 0 }}
+      exit={{ opacity: 1, scale: 0 }}
+    >
       <h1 className="font-bold tracking-wide truncate">{movie.title}</h1>
       <img
         alt="gallery"
