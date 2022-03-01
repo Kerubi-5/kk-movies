@@ -1,11 +1,15 @@
+import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import { login, logout } from "../state/authReducer";
 import { filterMovies } from "../state/movieReducer";
 
 const Header = () => {
+  const isLogged = useSelector((state) => state.auth.isLogged);
   const dispatch = useDispatch();
   const handleSearch = (val) => {
     dispatch(filterMovies(val));
   };
+
   return (
     <nav className="sticky top-0 z-[1000] flex justify-between items-center mx-auto mb-10 px-4 h-16 shadow-lg hover:bg-white duration-300">
       <div className="flex items-center">
@@ -35,9 +39,21 @@ const Header = () => {
         >
           Saved List
         </a>
-        <button className="border-transparent border-b-2 hover:border-b-slate-600 duration-300">
-          Login
-        </button>
+        {isLogged ? (
+          <button
+            className="border-transparent border-b-2 hover:border-b-slate-600 duration-300"
+            onClick={() => dispatch(logout())}
+          >
+            Logout
+          </button>
+        ) : (
+          <button
+            className="border-transparent border-b-2 hover:border-b-slate-600 duration-300"
+            onClick={() => dispatch(login())}
+          >
+            Login
+          </button>
+        )}
       </div>
     </nav>
   );
