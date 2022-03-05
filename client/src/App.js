@@ -7,6 +7,7 @@ function App() {
   return (
     <>
       <Header />
+
       <Routes>
         <Route path="/" element={<Movies />} />
         <Route path="/saved" element={<SavedMovies />} />

@@ -13,6 +13,7 @@ ReactDOM.render(
       domain={"kk-company.us.auth0.com"}
       clientId={"BRaUWpIIv6qusDrwhpqv3x0ecjUeMS1L"}
       redirectUri={window.location.origin}
+      audience="https://kk-legal-application-api/"
     >
       <Provider store={store}>
         <BrowserRouter>
