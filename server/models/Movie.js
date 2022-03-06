@@ -4,6 +4,7 @@ const MovieSchema = new mongoose.Schema({
   email: "string",
   movies: [
     {
+      id: "string",
       name: "string",
       imgSrc: "string",
     },
