@@ -56,7 +56,7 @@ const Movie = ({ movie }) => {
       imgSrc: movie.poster_path,
     };
 
-    let request = new Request("http://localhost:5000/saved", {
+    let request = new Request("https://kk-movies.herokuapp.com/saved", {
       method: "POST",
       body: JSON.stringify(data),
       headers: new Headers({

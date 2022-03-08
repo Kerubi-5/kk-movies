@@ -24,7 +24,7 @@ const SavedMovies = () => {
     const fetchSavedMoviesApi = async () => {
       const accessToken = await getAccessTokenSilently();
 
-      fetch(`http://localhost:5000/saved?email=${user?.email}`, {
+      fetch(`https://kk-movies.herokuapp.com/saved?email=${user?.email}`, {
         method: "GET",
         headers: new Headers({
           "Content-Type": "application/json; charset=UTF-8",
@@ -34,6 +34,7 @@ const SavedMovies = () => {
         .then((data) => data.json())
         .then((resp) => {
           const [x] = resp?.results ?? [];
+          console.log(resp);
           console.log(x);
 
           setSavedMovies(x?.movies);
