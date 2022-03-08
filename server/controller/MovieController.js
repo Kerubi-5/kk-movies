@@ -30,7 +30,7 @@ exports.store = async (req, res) => {
   };
 
   try {
-    let foundMovie = MovieModel.findOne({ email });
+    const foundMovie = await MovieModel.findOne({ email }).exec();
 
     if (!foundMovie) {
       newMovie = new MovieModel({
